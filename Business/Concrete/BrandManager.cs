@@ -3,6 +3,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -18,14 +19,18 @@ namespace Business.Concrete
 
         public void Add(Brand brand)
         {
-            if (brand.Name.Length > 2)
+            if (brand.Name.Length > 2 && _brandDal.GetAll().Any(b => b.Name == brand.Name) == false)
             {
                 _brandDal.Add(brand);
                 Console.WriteLine("Marka başarıyla eklendi.");
             }
-            else
+            else if (brand.Name.Length <= 2)
             {
                 Console.WriteLine("Lütfen 2 karakterden uzun bir marka ismi giriniz!");
+            }
+            else if (_brandDal.GetAll().Any(b => b.Name == brand.Name) == true)
+            {
+                Console.WriteLine("Lütfen mevcut olmayan bir marka giriniz!");
             }
         }
 

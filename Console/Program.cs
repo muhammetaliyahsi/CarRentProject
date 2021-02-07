@@ -24,10 +24,22 @@ namespace Console
             //    Description = "1.6 Model"
             //});
 
-            foreach (var car in carManager.GetAll())
+            //foreach (var car in carManager.GetAll())
+            //{
+            //    System.Console.WriteLine(car.Description);
+            //}
+
+            //colorManager.Add(new Color
+            //{
+            //    Id = 1,
+            //    Name = "Beyaz"
+            //});
+
+            brandManager.Add(new Brand
             {
-                System.Console.WriteLine(car.Description);
-            }
+                Id = 3,
+                Name = "Opel"
+            });
 
         }
     }
