@@ -35,11 +35,21 @@ namespace Console
             //    Name = "Beyaz"
             //});
 
-            brandManager.Add(new Brand
+
+            //brandManager.Add(new Brand
+            //{
+            //    Id = 3,
+            //    Name = "Opel"
+            //});
+
+
+            foreach (var car in carManager.GetCarDetails())
             {
-                Id = 3,
-                Name = "Opel"
-            });
+                System.Console.WriteLine(car.CarId + "-" + 
+                    car.BrandName + "-" + 
+                    car.ColorName + "-" + 
+                    car.DailyPrice);
+            }
 
         }
     }
