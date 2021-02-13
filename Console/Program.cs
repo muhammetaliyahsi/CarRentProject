@@ -13,6 +13,9 @@ namespace Console
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             CarManager carManager = new CarManager(new EfCarDal());
+            UserManager userManager = new UserManager(new EfUserDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
 
             //carManager.Add(new Car
             //{
@@ -31,26 +34,49 @@ namespace Console
 
             //colorManager.Add(new Color
             //{
-            //    Id = 1,
-            //    Name = "Beyaz"
+            //    Id = 2,
+            //    Name = "Siyah"
             //});
 
 
             //brandManager.Add(new Brand
             //{
             //    Id = 3,
-            //    Name = "Opel"
+            //    Name = "opel"
             //});
 
 
-            foreach (var car in carManager.GetCarDetails())
+            //var result = carManager.GetCarDetails();
+
+            //foreach (var car in result.Data)
+            //{
+            //    System.Console.WriteLine(car.CarId + "-" +
+            //        car.BrandName + "-" +
+            //        car.ColorName + "-" +
+            //        car.DailyPrice);
+            //}
+
+            
+
+            userManager.Add(new User
             {
-                System.Console.WriteLine(car.CarId + "-" + 
-                    car.BrandName + "-" + 
-                    car.ColorName + "-" + 
-                    car.DailyPrice);
-            }
+                Id = 1,
+                Email = "ali@gmail.com",
+                FirstName = "Ali",
+                LastName = "Yahşi",
+                Password = "123456789"
+            });
+
+            customerManager.Add(new Customer
+            {
+                UserId = 1,
+                CustomerId = 1,
+                CompanyName = "MAY"
+            });
+
+
 
         }
+
     }
 }
