@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -58,14 +59,14 @@ namespace Console
 
             
 
-            userManager.Add(new User
-            {
-                Id = 1,
-                Email = "ali@gmail.com",
-                FirstName = "Ali",
-                LastName = "Yahşi",
-                Password = "123456789"
-            });
+            //userManager.Add(new User
+            //{
+            //    Id = 1,
+            //    Email = "ali@gmail.com",
+            //    FirstName = "Ali",
+            //    LastName = "Yahşi",
+            //    Password = "123456789"
+            //});
 
             customerManager.Add(new Customer
             {

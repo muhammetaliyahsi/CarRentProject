@@ -1,8 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Business.ValidationRules.FluentValidation
 {
@@ -13,7 +10,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(u => u.Id).NotEmpty();
             RuleFor(u => u.FirstName).NotEmpty();
             RuleFor(u => u.LastName).NotEmpty();
-            RuleFor(u => u.Password).NotEmpty();
+            RuleFor(u => u.PasswordHash).NotEmpty();
             RuleFor(u => u.Email).NotEmpty();
         }
     }
