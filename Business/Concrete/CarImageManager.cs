@@ -33,6 +33,7 @@ namespace Business.Concrete
                 return result;
             }
             carImage.ImagePath = FileHelper.Add(file);
+            carImage.ImageName = carImage.ImagePath.Substring(57);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);
@@ -67,9 +68,9 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarImageValidator))]
-        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
+        public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
         {
-            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
+            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(carId));
         }
 
 

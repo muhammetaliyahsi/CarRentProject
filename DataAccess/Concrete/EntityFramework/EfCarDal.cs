@@ -19,12 +19,54 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Cars
                              join b in context.Brands
-                             on c.Id equals b.Id
+                             on c.BrandId equals b.Id
                              join co in context.Colors
                              on c.ColorId equals co.Id
                              select new CarDetailDto
                              {
-                                 CarId = c.Id,
+                                 Id = c.Id,
+                                 BrandName = b.Name,
+                                 ColorName = co.Name,
+                                 DailyPrice = c.DailyPrice
+                             };
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDto> GetCarDetailsByColorId(int colorId)
+        {
+            using (CarRentContext context = new CarRentContext())
+            {
+                var result = from c in context.Cars
+                             where c.ColorId == colorId
+                             join b in context.Brands
+                             on c.BrandId equals b.Id
+                             join co in context.Colors
+                             on c.ColorId equals co.Id
+                             select new CarDetailDto
+                             {
+                                 Id = c.Id,
+                                 BrandName = b.Name,
+                                 ColorName = co.Name,
+                                 DailyPrice = c.DailyPrice
+                             };
+                return result.ToList();
+            }
+        }
+
+        public List<CarDetailDto> GetCarDetailsByBrandId(int brandId)
+        {
+            using (CarRentContext context = new CarRentContext())
+            {
+                var result = from c in context.Cars
+                             where c.BrandId == brandId
+                             join b in context.Brands
+                             on c.BrandId equals b.Id
+                             join co in context.Colors
+                             on c.ColorId equals co.Id
+                             select new CarDetailDto
+                             {
+                                 Id = c.Id,
                                  BrandName = b.Name,
                                  ColorName = co.Name,
                                  DailyPrice = c.DailyPrice
