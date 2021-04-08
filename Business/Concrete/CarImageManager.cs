@@ -33,7 +33,7 @@ namespace Business.Concrete
                 return result;
             }
             carImage.ImagePath = FileHelper.Add(file);
-            carImage.ImageName = carImage.ImagePath.Substring(57);
+            carImage.ImageName = carImage.ImagePath.Substring(5);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);

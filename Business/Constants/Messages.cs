@@ -37,6 +37,7 @@ namespace Business.Constants
         public static string RentalDeleted = "Kiralama bilgisi başarıyla silindi.";
         public static string RentalsListed = "Kiralama bilgileri listelendi.";
         public static string RentalUpdated = "Kiralama bilgisi başarıyla güncellendi.";
+        public static string RentalDetailsListed = "Kiralama bilgileri listelendi.";
 
         public static string CustomerAdded = "Müşteri başarıyla eklendi.";
         public static string CustomerDeleted = "Müşteri başarıyla silindi.";
@@ -56,5 +57,10 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Başarılı giriş.";
         public static string UserAlreadyExists = "Kullanıcı mevcut!";
         public static string AccessTokenCreated = "Token oluşturuldu.";
+
+        public static string CardAdded = "Kart bilgileri kaydedildi.";
+
+        public static string PaymentFailed = "Ödeme işlemi başarısız!";
+        public static string PaymentSuccessful = "Ödeme başarılı.";
     }
 }
