@@ -25,7 +25,7 @@ namespace Business.Concrete
         }
 
         // claim--> tırnak içinde yazılan yetkilendilirelen kısım "admin,editor","car.add,admin" gibi şeyler de olabilir.
-        [SecuredOperation("car.add,admin")]
+        //[SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         // Update yapılınca bellekteki tüm ICarSerive Get'lerini siler.
         [CacheRemoveAspect("ICarService.Get")]
@@ -35,7 +35,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarAdded);
         }
 
-        [SecuredOperation("car.delete,admin")]
+        //[SecuredOperation("car.delete,admin")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
